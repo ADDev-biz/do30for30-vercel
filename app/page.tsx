@@ -1,6 +1,24 @@
 export default function Home() {
+  const inMaintenance = process.env.IN_MAINTENANCE === "true";
+
   return (
     <div className="bg-white text-gray-800">
+      {inMaintenance && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+          <div className="mx-4 max-w-md rounded-lg bg-white p-8 text-center shadow-2xl">
+            <div className="text-5xl">🚧</div>
+            <h2 className="mt-4 text-2xl font-bold text-gray-900">
+              Under Construction
+            </h2>
+            <p className="mt-3 text-gray-600">
+              We&apos;re working on some improvements and will be back shortly.
+            </p>
+            <p className="mt-2 text-gray-600">
+              Thank you for your patience!
+            </p>
+          </div>
+        </div>
+      )}
       {/* Hero Section */}
       <header className="bg-brand-blue">
         <div className="container mx-auto px-6 py-16 text-center text-white">
